@@ -1,0 +1,17 @@
+.Img{
+  margin-left: 20%;
+  margin-top: 2%;
+}
+.flex-container{
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: 27%;
+}
+.flex-container > div {
+  text-align: center;
+}
+button{
+  height: 60px;
+  width: 100px;
+  margin: 10px;
+}
