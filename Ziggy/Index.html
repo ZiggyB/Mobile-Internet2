@@ -8,27 +8,37 @@
   <body>
   <img id="Auto" class="Img" src="Fotos/van.jpg" alt="Van">
     <div class="flex-container">
-  <div><button type="button" name="Normal">Normal</button></div>
+  <div><button type="button" onclick="Normal()" name="Normal">Normal</button></div>
   <div><button type="button" onclick="Grayke()" name="Grayscale">Grayscale</button></div>
   <div><button type="button" onclick="seepke()" name="Sepia">Sepia</button></div>
   <div><button type="button" onclick="hueeke()" name="Hue">Hue</button></div>
   <div><button type="button" onclick= "blurke()" name="Blur">Blur</button></div>
 <div class="slidecontainer">
   <br>
-  <input type="range" min="1" max="100" value="100">
+  <input type="range" min="1" max="100" value="100" id="myRange">
   <p>opacity: <span id="Value">function()</span></p>
   <script>
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("Value");
+output.innerHTML = slider.value;
+slider.oninput = function() {
+  output.innerHTML = this.value;
+  };
+function Normal(){
+    document.getElementById("Auto").style.filter = "none";
+};
 function Grayke(){
     document.getElementById("Auto").style.filter = "grayscale(100%)";
     document.getElementById("Auto").style.WebkitFilter = "grayscale(100%)";
   };
 function hueeke(){
-    document.getElementById("Auto").style.filter = "hue-rotate(100%)";
-    document.getElementById("Auto").style.WebkitFilter = "grayscale(100%)";
+    document.getElementById("Auto").style.filter = "saturate(50%)";
+    document.getElementById("Auto").style.WebkitFilter = "saturate(50%)";
 
   };
 function blurke(){
-    document.getElementById("Auto").style.filter = "blur(100px)";
+    document.getElementById("Auto").style.filter = output + "px";
     document.getElementById("Auto").style.WebkitFilter = "blur(100px)";
 
 };
@@ -37,12 +47,7 @@ function seepke(){
   document.getElementById("Auto").style.WebkitFilter = "sepia(100%)";
 
 }
-var slider = document.getElementById("myRange");
-var output = document.getElementById("Value");
-output.innerHTML = slider.value;
-slider.oninput = function() {
-  output.innerHTML = this.value;
-};
+
 </script>
   </body>
 </html>
